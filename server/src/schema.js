@@ -6,17 +6,22 @@ const typeDefs = gql`
         tracksForHome: [Track!]!
     }
 
+    " Author is the person who posts Tracks "
     type Author {
         id: ID!
+        " Author's name "
         name: String!
+        " Image URL "
         photo: String
     }
 
     " A track is a group of Modules that teaches about a specific topic "
     type Track {
         id: ID!
+        " Track's title "
         title: String!
         author: Author!
+        " Image URL "
         thumbnail: String
         length: Int
         modulesCount: Int
