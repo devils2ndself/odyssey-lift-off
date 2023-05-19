@@ -6,6 +6,8 @@ const typeDefs = gql`
         tracksForHome: [Track!]!
         "Fetch a specific track, provided a track's ID"
         track(id: ID!): Track
+        "Fetch a module, provided module's ID"
+        module(id: ID!): Module!
     }
 
     "Author is the person who posts Tracks"
@@ -42,6 +44,10 @@ const typeDefs = gql`
         title: String!
         "The Module's length in minutes"
         length: Int
+        "Video to be played in iframe"
+        videoUrl: String
+        "Text content"
+        content: String
     }
 `;
 
