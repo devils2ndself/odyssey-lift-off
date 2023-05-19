@@ -40,7 +40,11 @@ const resolvers = {
 
             // Our tracksForHome resolver will return the results from that TrackAPI method.
             return dataSources.trackAPI.getTracksForHome();
-        } 
+        },
+
+        track: (_, { id }, { dataSources }) => {
+            return dataSources.trackAPI.getTrack(id);
+        }
     },
 
     // Track resolver for each infividual track (for getting author)
@@ -49,6 +53,10 @@ const resolvers = {
         author: ({ authorId }, _, { dataSources }) => {
             return dataSources.trackAPI.getAuthor(authorId);
         },
+
+        modules: ({ id }, _, { dataSources }) => {
+            return dataSources.trackAPI.getTrackModules(id);
+        }
     },
 }
 
