@@ -10,6 +10,22 @@ const typeDefs = gql`
         module(id: ID!): Module!
     }
 
+    type Mutation {
+        "Increment the number of views by 1 each time a card is clicked"
+        incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+    }
+
+    type IncrementTrackViewsResponse {
+        "Similar to HTTP status code, represents the status of the mutation"
+        code: Int!
+        "Indicates whether the mutation was successful"
+        success: Boolean!
+        "Human-readable message for the UI"
+        message: String!
+        "Newly updated track after a successful mutation"
+        track: Track
+    }
+
     "Author is the person who posts Tracks"
     type Author {
         id: ID!
